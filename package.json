@@ -1,0 +1,59 @@
+{
+  "name": "vite-webext-vue",
+  "displayName": "Vite Webext vue",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Developing Browser Extensions with Vue.js based on Vite",
+  "author": {
+    "name": "Caven",
+    "email": "cavenasdev@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/heybrostudio/vite-webext-starter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heybrostudio/vite-webext-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/heybrostudio/vite-webext-starter/issues"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:watch": "vite build --watch --mode development --minify false",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve:firefox": "vite & web-ext run --start-url \"about:debugging#/runtime/this-firefox\"  --source-dir ./dist/dev/",
+    "serve:chrome": "vite & web-ext run -t chromium --start-url \"https://google.com\" --source-dir ./dist/dev/",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "release": "bumpp --commit --push --tag && bun run build",
+    "up": "taze major -I",
+    "postinstall": "bunx simple-git-hooks"
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "webextension-polyfill": "^0.10.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.12.1",
+    "@samrum/vite-plugin-web-extension": "^5.1.0",
+    "@types/chrome": "^0.0.265",
+    "@types/webextension-polyfill": "^0.10.7",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "bumpp": "^9.4.0",
+    "lint-staged": "^15.2.2",
+    "simple-git-hooks": "^2.11.1",
+    "taze": "^0.13.3",
+    "typescript": "^5.4.4",
+    "unocss": "^0.59.0-beta.1",
+    "vite": "^5.2.8",
+    "vite-plugin-fflate-zip": "^0.0.3",
+    "vue-tsc": "^2.0.10",
+    "web-ext": "^7.11.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bun lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

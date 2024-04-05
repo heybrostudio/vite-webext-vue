@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["package.json", "*.config.ts", "src/manifest.ts", "plugin/vite-plugin-fflate-zip.ts"]
+}
